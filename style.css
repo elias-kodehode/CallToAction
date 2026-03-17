@@ -86,7 +86,7 @@ main{
 /* FOOTER */
 footer{
     background-color: rgba(0, 0, 255, 0.314);
-    height: 3rem;
+    height: 6rem;
     position: sticky;
     bottom: 0;
     backdrop-filter: blur(25px);
@@ -94,14 +94,28 @@ footer{
 }
 
 
-footer a{
-    text-align: center;
-    font-size: 3rem;
-    text-decoration: none;
+footer .footer-container{
+    display: flex;
+    height: inherit;
+    justify-content: flex-end;
+}
+
+footer .footer-container img{
+    height: inherit;
+    cursor:pointer;
+    
+}
+
+footer .footer-container img:hover{
+    filter: hue-rotate(60deg);
 }
 
 @media (min-width:712px) {
     .container{
         background-color: orange;
+    }
+
+    footer{
+        height: 3rem;
     }
 }
