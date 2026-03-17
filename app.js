@@ -2,9 +2,9 @@ const app = {
     currentIndex:0,
     sections: [],
     setup(){
-        this.sections = Array.from(document.querySelectorAll("main section"));
-        console.log("currentIndex: " + this.currentIndex);
-        console.log(this.sections.length);
+        const nodes = document.querySelectorAll("main section");
+        console.log(nodes);
+        this.sections = Array.from(nodes);
     },
     up() {
         if(this.currentIndex > 0){
@@ -29,8 +29,71 @@ const app = {
     }
 };
 
+const swipeHandler = {
+    touchStartY:0,
+    touchEndY:0,
+    minSwipeDistance:50,
+    setup(){
+        document.addEventListener("touchstart", evt => {
+            this.onTouch(evt);
+        });
+        document.addEventListener("touchend", evt => {
+            this.onTouchEnd(evt);
+        });
+    },
+    onTouch(touch){
+        this.touchStartY = touch.changedTouches[0].clientY;
+    },
+    onTouchEnd(touch){
+        this.touchEndY = touch.changedTouches[0].clientY;
+        this.handleTouch();
+    },
+    handleTouch(){
+        //get finger distance travelled
+        var diffY = this.touchEndY - this.touchStartY;
+
+        //swipe sensitivity check
+        if(Math.abs(diffY) > this.minSwipeDistance){
+            if(diffY < 0){
+                console.log("swipe up");
+                app.down();
+            }else{
+                app.up();
+                console.log("swipe down")
+            }
+        }
+        console.log(diffY);
+    }
+};
 
 
+//very buggy
+const scrollHandler = {
+    scrollSensitivity: 100,
+    setup(){
+        document.addEventListener("wheel", evt => {
+            const delta = evt.deltaY;
+            console.log(evt);
+            if(Math.abs(delta) < this.scrollSensitivity) return;
+
+            
+            if(delta > 0){
+                this.scrollUp();
+            }else{
+                this.scrollDown();
+            }
+        });
+    },
+    scrollUp(){
+        app.down();
+    },
+    scrollDown(){
+        app.up();
+    }
+};
 document.addEventListener("DOMContentLoaded", () => {
+    swipeHandler.setup();
+    // scrollHandler.setup();
     app.setup();
+
 });
