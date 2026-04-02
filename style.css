@@ -1,9 +1,11 @@
 :root
 {
     scroll-behavior: smooth;
-    --main-color: #2E7D32;
-    --secondary-color: #66BB6A;
-    --accent-color:#1976D2;
+    --main-color: #0b0e0b;
+    --secondary-color: #28e931;
+    --accent-color:#334250;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 *{
@@ -15,6 +17,7 @@ body{
     flex-direction: column; 
     min-height: 100vh;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -37,12 +40,8 @@ header h1{
 }
 header{
     position: absolute;
-    /* background: rgba(15, 202, 31, 0.607); */
     background: var(--accent-color);
     backdrop-filter: blur(25px);
-    border-radius: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     width: 100%;
     height: 5rem;
 
@@ -51,7 +50,6 @@ header{
 /* MAIN */
 main{
     height: 100%;
-    /* padding: 20px; */
     margin: 0 20px;
 }
 
@@ -66,6 +64,7 @@ main{
     flex-direction: column;
     height: 100vh;
 }
+
 #hero img{
     height: 400px;
     width: 100%;
@@ -89,42 +88,88 @@ main{
 }
 #hero p, #help p{
     font-size: 2rem;
+    padding: 20px 0;
+    width: 20ch;
+}
+
+b{
+    color: var(--secondary-color);
 }
 
 
-/* FOOTER */
-footer{
-    background-color: rgba(0, 0, 255, 0.314);
-    height: 6rem;
-    position: sticky;
-    bottom: 0;
-    backdrop-filter: blur(25px);
 
-}
-
-
-footer .footer-container{
+section#help form{
     display: flex;
-    height: inherit;
-    justify-content: flex-end;
+    flex-direction: column;
+    color: whitesmoke;
+    margin: 10px;
+    gap:5px;
+
 }
 
-footer .footer-container img{
-    height: inherit;
-    cursor:pointer;
-    
+
+input{
+    /* background-color: var(--accent-color); */
+    background-color: transparent;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 10px;
+}
+#hero button{
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+    align-self: flex-start;
+    width: 200px;
+}
+#help button{
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+    align-self: flex-start;
+    width: 200px;
 }
 
-footer .footer-container img:hover{
-    filter: hue-rotate(60deg);
+button:active{
+    background-color: var(--secondary-color);
 }
+
+
+.navigation-buttons img{
+    max-width: 4rem;
+    max-height: 4rem;
+    display: block;
+    margin: 5px;
+    filter: brightness(0) invert(1);
+}
+.navigation-buttons img:hover{
+    max-width: 4rem;
+    max-height: 4rem;
+    display: block;
+    margin: 5px;
+    transform: scale(1.1);
+}
+.navigation-buttons{
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 75%;
+}
+
 
 @media (min-width:712px) {
-    .container{
-        background-color: orange;
+    main{
+        height: 100%;
+        padding: 0 200px;
+        margin: 0 20px;
+    }
+    #hero p, #help p{
+        font-size: 2rem;
+        padding: 20px 0;
+        width: 40ch;
     }
 
-    footer{
-        height: 3rem;
-    }
 }

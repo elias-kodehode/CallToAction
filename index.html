@@ -15,11 +15,17 @@
             </h1>
         </header>
     
+        <div class="navigation-buttons">
+            <img src="./images/arrow-circle-up.svg" onclick="app.up()">
+            <img src="./images/arrow-circle-down.svg" onclick="app.down()">
+        </div>
+
         <main>
             <section id="hero">
                 <img src="./images/hero-image-bad.png"/>
                 <p>
-                    Miljøet står i fare!! hjelp oss redde miljøet i dag. før det er for seint!
+                    Miljøet står i fare!! hjelp oss redde miljøet i dag, før det er for seint!
+                    for hver krone som blir donert blir <b>1</b> nytt tred plantet.
                 </p>
                 <button onclick="app.down()">
                     Hjelp i dag
@@ -28,6 +34,7 @@
 
             <section id="help">
                 <img src="./images/hero-image.png"/>
+
                 <form post="/">
                     <label>Navn</label>
                     <input placeholder="Navn">
@@ -37,7 +44,7 @@
                     <input type="email" placeholder="E-Mail">
                     <br>
 
-                    <label for="amount">Mengde:</label>
+                    <label for="amount">Mengde i NOK</label>
                     <input type="number" name="amount" id="" placeholder="NOK">
                     <br>
 
@@ -47,11 +54,8 @@
         </main>
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <img src="./images/arrow-circle-up.svg" onclick="app.up()">
-            <img src="./images/arrow-circle-down.svg" onclick="app.down()">
-        </div>
-    </footer>
+    <!-- <footer>
+
+    </footer> -->
 </body>
 </html>
